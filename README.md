@@ -185,27 +185,38 @@ Open your browser and navigate to:
 sales-analytics-ai-agent/
 ├── backend/
 │   ├── app/
-│   │   ├── agents/          # AI agents
-│   │   ├── analytics/       # Analytics modules
-│   │   ├── api/             # API routes
-│   │   ├── core/            # Configuration
-│   │   ├── models/          # Data models
-│   │   ├── services/        # Business logic
-│   │   ├── tools/           # LangChain tools
-│   │   ├── utils/           # Utilities
-│   │   └── main.py          # FastAPI app
-│   ├── data/                # Data files
-│   └── tests/               # Tests
+│   │   ├── agents/            # Multi-agent system
+│   │   │   └── sales_agent.py # Main + specialized agents
+│   │   ├── analytics/         # Four analytics modules
+│   │   │   ├── descriptive.py
+│   │   │   ├── diagnostic.py
+│   │   │   ├── predictive.py
+│   │   │   └── prescriptive.py
+│   │   ├── tools/             # LangChain tools
+│   │   │   └── analytics_tools.py # 15+ tools
+│   │   ├── core/              # Configuration & logging
+│   │   │   ├── config.py
+│   │   │   └── logger.py
+│   │   ├── models/            # Pydantic schemas
+│   │   │   └── schemas.py
+│   │   ├── utils/             # Data utilities
+│   │   │   └── data_loader.py
+│   │   └── main.py            # FastAPI application
+│   └── data/                  # Data directory
+│
 ├── frontend/
-│   ├── css/                 # Stylesheets
-│   ├── js/                  # JavaScript
-│   ├── assets/              # Images, etc.
-│   └── index.html           # Main page
-├── logs/                    # Application logs
-├── models/                  # ML models
-├── requirements.txt         # Dependencies
-├── .env.example            # Environment template
-└── README.md               # This file
+│   ├── index.html             # Main interface
+│   ├── css/
+│   │   └── styles.css         # Beautiful styling
+│   └── js/
+│       └── app.js             # Frontend application
+│
+├── logs/                      # Application logs
+└── models/                    # ML models directory
+├── README.md                    # Comprehensive documentation
+├── ARCHITECTURE.md             # Technical architecture details
+├── requirements.txt            # All Python dependencies
+├── .env.example               # Configuration template
 ```
 
 ## 🔧 Configuration
@@ -357,18 +368,6 @@ pip install -r requirements.txt
 - CORS protection
 - Input validation
 - Secure API endpoints
-
-## 🛣️ Roadmap
-
-- [ ] Database integration (PostgreSQL)
-- [ ] User authentication
-- [ ] Multi-tenant support
-- [ ] Custom metric definitions
-- [ ] Scheduled reports
-- [ ] Email notifications
-- [ ] Export to PDF/Excel
-- [ ] n8n workflow integration
-- [ ] Advanced ML models
 
 ## 👥 Support
 
