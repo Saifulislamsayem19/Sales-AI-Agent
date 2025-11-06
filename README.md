@@ -1,6 +1,10 @@
 # Sales Analytics AI Agent System
 
-An advanced AI-powered sales analytics system featuring multi-agent architecture, comprehensive analytics (Descriptive, Diagnostic, Predictive, and Prescriptive), and an intuitive web interface.
+An advanced, AI-driven sales analytics platform built with a multi-agent architecture. It offers a comprehensive suite of analytics, including Descriptive, Diagnostic, Predictive, and Prescriptive insights, empowering businesses to make data-driven decisions. The system features an intuitive web interface designed for seamless user interaction, providing actionable insights and fostering intelligent sales strategies.
+
+
+<img width="1432" height="948" alt="image" src="https://github.com/user-attachments/assets/802bccbf-0b8f-43eb-adac-851539892149" />
+
 
 ## 🌟 Features
 
