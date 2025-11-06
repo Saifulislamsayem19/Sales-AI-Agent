@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+wheelhouse/
+
+# Virtual environment
+venv/
+
+
+# Logs
+logs/
+*.log
+
+# Environment / secrets
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and trained models (avoid committing large or sensitive files)
+backend/data/models/ml_models/
+*.h5
+*.pt
+*.ckpt
+*.pkl
+
+
