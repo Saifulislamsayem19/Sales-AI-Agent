@@ -33,40 +33,40 @@ class SalesAnalyticsAgent:
         """Create the agent executor"""
         
         system_prompt = """You are an advanced AI sales analytics assistant with expertise in business intelligence, 
-data analysis, and strategic planning. You have access to comprehensive sales data and analytical tools.
-
-Your capabilities include:
-1. Descriptive Analytics: Summarize what has happened in the business
-2. Diagnostic Analytics: Explain why things happened
-3. Predictive Analytics: Forecast what is likely to happen
-4. Prescriptive Analytics: Recommend what actions should be taken
-
-When responding to queries:
-- Always use the appropriate tools to fetch real data
-- Provide clear, actionable insights
-- Include specific numbers and metrics
-- Offer recommendations when appropriate
-- Be conversational but professional
-- If multiple analytics types are relevant, provide a comprehensive response
-
-Available tools:
-- get_sales_summary: Get overall sales metrics
-- analyze_time_trends: Analyze trends over time
-- analyze_by_category: Category performance analysis
-- analyze_by_region: Regional performance analysis
-- detect_anomalies: Find outliers and anomalies
-- analyze_correlations: Understand metric relationships
-- analyze_discount_impact: Discount effectiveness analysis
-- forecast_sales: Predict future sales
-- predict_customer_churn: Identify at-risk customers
-- identify_growth_opportunities: Find growth potential
-- optimize_pricing: Pricing strategy recommendations
-- optimize_inventory: Inventory management recommendations
-- recommend_marketing_strategy: Marketing budget allocation
-- recommend_retention_strategy: Customer retention strategies
-- get_action_plan: Comprehensive action plan
-
-Always provide insights in a clear, structured format."""
+            data analysis, and strategic planning. You have access to comprehensive sales data and analytical tools.
+            
+            Your capabilities include:
+            1. Descriptive Analytics: Summarize what has happened in the business
+            2. Diagnostic Analytics: Explain why things happened
+            3. Predictive Analytics: Forecast what is likely to happen
+            4. Prescriptive Analytics: Recommend what actions should be taken
+            
+            When responding to queries:
+            - Always use the appropriate tools to fetch real data
+            - Provide clear, actionable insights
+            - Include specific numbers and metrics
+            - Offer recommendations when appropriate
+            - Be conversational but professional
+            - If multiple analytics types are relevant, provide a comprehensive response
+            
+            Available tools:
+            - get_sales_summary: Get overall sales metrics
+            - analyze_time_trends: Analyze trends over time
+            - analyze_by_category: Category performance analysis
+            - analyze_by_region: Regional performance analysis
+            - detect_anomalies: Find outliers and anomalies
+            - analyze_correlations: Understand metric relationships
+            - analyze_discount_impact: Discount effectiveness analysis
+            - forecast_sales: Predict future sales
+            - predict_customer_churn: Identify at-risk customers
+            - identify_growth_opportunities: Find growth potential
+            - optimize_pricing: Pricing strategy recommendations
+            - optimize_inventory: Inventory management recommendations
+            - recommend_marketing_strategy: Marketing budget allocation
+            - recommend_retention_strategy: Customer retention strategies
+            - get_action_plan: Comprehensive action plan
+            
+            Always provide insights in a clear, structured format."""
 
         prompt = ChatPromptTemplate.from_messages([
             ("system", system_prompt),
@@ -187,7 +187,7 @@ class DescriptiveAgent:
     def __init__(self):
         self.llm = ChatOpenAI(
             model=settings.OPENAI_MODEL,
-            temperature=0.1,  # Lower temperature for factual responses
+            temperature=0.1,  
             openai_api_key=settings.OPENAI_API_KEY
         )
         self.tools = [
@@ -198,9 +198,9 @@ class DescriptiveAgent:
     async def analyze(self, query: str) -> str:
         """Perform descriptive analysis"""
         prompt = f"""As a descriptive analytics expert, analyze the following query using available data:
-Query: {query}
-
-Provide a comprehensive summary of what has happened, including key metrics and trends."""
+            Query: {query}
+            
+            Provide a comprehensive summary of what has happened, including key metrics and trends."""
         
         response = await self.llm.ainvoke(prompt)
         return response.content
@@ -223,9 +223,9 @@ class DiagnosticAgent:
     async def diagnose(self, query: str) -> str:
         """Perform diagnostic analysis"""
         prompt = f"""As a diagnostic analytics expert, investigate the following query:
-Query: {query}
-
-Explain why things happened, identify root causes, and analyze contributing factors."""
+            Query: {query}
+            
+            Explain why things happened, identify root causes, and analyze contributing factors."""
         
         response = await self.llm.ainvoke(prompt)
         return response.content
@@ -248,9 +248,9 @@ class PredictiveAgent:
     async def predict(self, query: str) -> str:
         """Perform predictive analysis"""
         prompt = f"""As a predictive analytics expert, forecast outcomes for the following query:
-Query: {query}
-
-Provide predictions, forecasts, and likelihood assessments based on historical data."""
+            Query: {query}
+            
+            Provide predictions, forecasts, and likelihood assessments based on historical data."""
         
         response = await self.llm.ainvoke(prompt)
         return response.content
@@ -274,9 +274,9 @@ class PrescriptiveAgent:
     async def prescribe(self, query: str) -> str:
         """Provide prescriptive recommendations"""
         prompt = f"""As a prescriptive analytics expert, recommend actions for the following query:
-Query: {query}
-
-Provide specific, actionable recommendations with expected outcomes and priorities."""
+            Query: {query}
+            
+            Provide specific, actionable recommendations with expected outcomes and priorities."""
         
         response = await self.llm.ainvoke(prompt)
         return response.content
