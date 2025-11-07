@@ -165,7 +165,7 @@ class PrescriptiveAnalytics:
                 regional_metrics['Sales'] / regional_metrics['Customer ID']
             ).round(2)
             
-            # Calculate ROI score (simplified)
+            # Calculate ROI score
             regional_metrics['roi_score'] = (
                 regional_metrics['profit_margin'] * regional_metrics['sales_per_customer'] / 100
             ).round(2)
