@@ -103,7 +103,7 @@ class DiagnosticAnalytics:
             grouped = grouped.reset_index()
             grouped = grouped.sort_values('variance_from_mean', ascending=False)
             
-            # Clean the data
+            # Clean the data format
             records = []
             for _, row in grouped.iterrows():
                 records.append({
@@ -115,7 +115,7 @@ class DiagnosticAnalytics:
                     'variance_from_mean': float(row['variance_from_mean'])
                 })
             
-            # Statistical test (ANOVA)
+            # Statistical test (ANOVA TEST)
             groups = [group[metric].values for name, group in self.df.groupby(dimension)]
             f_stat, p_value = stats.f_oneway(*groups)
             
