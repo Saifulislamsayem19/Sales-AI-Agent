@@ -21,14 +21,13 @@ class PredictiveAnalytics:
     def forecast_sales(self, periods: int = 12, frequency: str = 'M') -> Dict[str, Any]:
         """Forecast sales using simple trend analysis"""
         try:
-            # Use 'ME' instead of deprecated 'M'
             freq = 'ME' if frequency == 'M' else frequency
             
             # Aggregate data
             ts_data = self.df.groupby(pd.Grouper(key='Order Date', freq=freq))['Sales'].sum()
             ts_data = ts_data.reset_index()
             
-            # Simple linear trend forecast
+            # linear regression trend forecast
             X = np.arange(len(ts_data)).reshape(-1, 1)
             y = ts_data['Sales'].values
             
@@ -168,7 +167,7 @@ class PredictiveAnalytics:
                 product_demand['Total_Quantity'] / product_demand['Order_Count']
             ).round(2)
             
-            # Sort by predicted demand (using sales as proxy)
+            # Sort by predicted demand 
             product_demand = product_demand.sort_values('Total_Sales', ascending=False)
             
             return {
@@ -211,7 +210,7 @@ class PredictiveAnalytics:
                 'revenue_predictions': predictions,
                 'baseline_revenue': float(moving_avg),
                 'assumed_growth_rate': float(recent_growth * 100),
-                'confidence': 'medium'  # Simplified confidence
+                'confidence': 'medium'  
             }
             
         except Exception as e:
