@@ -54,7 +54,7 @@ class DescriptiveAnalytics:
     def get_time_series_analysis(self, metric: str = 'Sales', frequency: str = 'M') -> Dict[str, Any]:
         """Analyze time series trends"""
         try:
-            # Use 'ME' instead of deprecated 'M'
+        
             freq = 'ME' if frequency == 'M' else frequency
             
             # Resample by frequency
@@ -62,7 +62,6 @@ class DescriptiveAnalytics:
                 'sum', 'mean', 'count'
             ]).reset_index()
             
-            # Replace NaN with 0
             ts_data = ts_data.fillna(0)
             
             # Calculate growth rates
@@ -275,7 +274,7 @@ class DescriptiveAnalytics:
         if len(values) < 2:
             return "insufficient_data"
         
-        # Simple linear regression slope
+        # linear regression slope
         x = np.arange(len(values))
         slope = np.polyfit(x, values, 1)[0]
         
