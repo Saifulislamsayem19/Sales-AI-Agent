@@ -40,7 +40,7 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow all origins for development
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -199,7 +199,7 @@ async def get_diagnostic_analytics():
             'customer_behavior': analytics.analyze_customer_behavior()
         }
         
-        return clean_for_json(result)  # Clean before returning
+        return clean_for_json(result)  
         
     except Exception as e:
         logger.error(f"Error in diagnostic analytics: {e}")
@@ -223,7 +223,7 @@ async def get_predictive_analytics():
             'revenue_prediction': analytics.predict_revenue(months_ahead=6)
         }
         
-        return clean_for_json(result)  # Clean before returning
+        return clean_for_json(result)  
         
     except Exception as e:
         logger.error(f"Error in predictive analytics: {e}")
@@ -248,7 +248,7 @@ async def get_prescriptive_analytics():
             'action_plan': analytics.generate_action_plan()
         }
         
-        return clean_for_json(result)  # Clean before returning
+        return clean_for_json(result)  
         
     except Exception as e:
         logger.error(f"Error in prescriptive analytics: {e}")
