@@ -54,8 +54,6 @@ An advanced, AI-driven sales analytics platform built with a multi-agent archite
 
 - Python 3.12
 - OpenAI API Key
-- 4GB RAM minimum
-- Modern web browser
 
 ## 🚀 Installation
 
