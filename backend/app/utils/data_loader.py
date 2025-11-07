@@ -24,7 +24,6 @@ class DataLoader:
             
             if not file_path.exists():
                 logger.warning(f"Data file not found: {file_path}. Creating sample data.")
-                return self.create_sample_data()
             
             logger.info(f"Loading data from {file_path}")
             self.df = pd.read_csv(file_path)
@@ -102,98 +101,6 @@ class DataLoader:
             'total_profit': float(self.df['Profit'].sum()) if 'Profit' in self.df.columns else 0,
             'columns': list(self.df.columns)
         }
-    
-    def create_sample_data(self, n_rows: int = 5000) -> pd.DataFrame:
-        """Create sample sales data for demonstration"""
-        logger.info(f"Creating sample data with {n_rows} rows")
-        
-        np.random.seed(42)
-        
-        # Date range
-        start_date = pd.Timestamp('2020-01-01')
-        end_date = pd.Timestamp('2024-12-31')
-        dates = pd.date_range(start_date, end_date, periods=n_rows)
-        
-        # Categories and subcategories
-        categories = {
-            'Technology': ['Phones', 'Computers', 'Accessories'],
-            'Furniture': ['Chairs', 'Tables', 'Bookcases'],
-            'Office Supplies': ['Paper', 'Binders', 'Art']
-        }
-        
-        # Regions and markets
-        regions = ['East', 'West', 'North', 'South', 'Central']
-        markets = ['US', 'EU', 'APAC', 'LATAM']
-        segments = ['Consumer', 'Corporate', 'Home Office']
-        ship_modes = ['Standard Class', 'Second Class', 'First Class', 'Same Day']
-        priorities = ['Low', 'Medium', 'High', 'Critical']
-        
-        # Generate data
-        data = []
-        for i in range(n_rows):
-            category = np.random.choice(list(categories.keys()))
-            subcategory = np.random.choice(categories[category])
-            
-            # Base price varies by category
-            base_price = {
-                'Technology': np.random.uniform(50, 2000),
-                'Furniture': np.random.uniform(100, 1500),
-                'Office Supplies': np.random.uniform(5, 200)
-            }[category]
-            
-            quantity = np.random.randint(1, 10)
-            discount = np.random.choice([0, 0.05, 0.1, 0.15, 0.2, 0.25])
-            sales = base_price * quantity * (1 - discount)
-            
-            # Profit margin varies by category
-            profit_margin = {
-                'Technology': np.random.uniform(0.15, 0.35),
-                'Furniture': np.random.uniform(0.10, 0.30),
-                'Office Supplies': np.random.uniform(0.20, 0.45)
-            }[category]
-            
-            profit = sales * profit_margin
-            shipping_cost = np.random.uniform(5, 50)
-            
-            order_date = dates[i]
-            ship_date = order_date + pd.Timedelta(days=np.random.randint(1, 7))
-            
-            data.append({
-                'Row ID': i + 1,
-                'Order ID': f'ORD-{i+1000:06d}',
-                'Order Date': order_date,
-                'Ship Date': ship_date,
-                'Ship Mode': np.random.choice(ship_modes),
-                'Customer ID': f'CUST-{np.random.randint(1, 1000):05d}',
-                'Customer Name': f'Customer {np.random.randint(1, 1000)}',
-                'Segment': np.random.choice(segments),
-                'City': f'City {np.random.randint(1, 100)}',
-                'State': f'State {np.random.randint(1, 50)}',
-                'Country': f'Country {np.random.randint(1, 20)}',
-                'Postal Code': f'{np.random.randint(10000, 99999)}',
-                'Market': np.random.choice(markets),
-                'Region': np.random.choice(regions),
-                'Product ID': f'PROD-{category[:3].upper()}-{np.random.randint(100, 999)}',
-                'Category': category,
-                'Sub-Category': subcategory,
-                'Product Name': f'{subcategory} {np.random.randint(1, 100)}',
-                'Sales': round(sales, 2),
-                'Quantity': quantity,
-                'Discount': discount,
-                'Profit': round(profit, 2),
-                'Shipping Cost': round(shipping_cost, 2),
-                'Order Priority': np.random.choice(priorities)
-            })
-        
-        df = pd.DataFrame(data)
-        
-        # Save sample data
-        output_path = Path(self.data_path) / 'sales_data.csv'
-        output_path.parent.mkdir(parents=True, exist_ok=True)
-        df.to_csv(output_path, index=False)
-        logger.info(f"Sample data saved to {output_path}")
-        
-        return df
     
     def get_data(self) -> Optional[pd.DataFrame]:
         """Get loaded data"""
