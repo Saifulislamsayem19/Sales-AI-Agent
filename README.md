@@ -62,34 +62,34 @@ AI-driven sales analytics platform built with a multi-agent architecture. It off
 The system implements a hierarchical multi-agent architecture using LangChain and OpenAI GPT-4. For detailed technical design, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ```
-                                            ┌─────────────────────────────────────────┐
-                                            │         User Interface (Web)            │
-                                            │    HTML5 + CSS3 + Vanilla JS + Plotly   │
-                                            └──────────────────┬──────────────────────┘
-                                                               │ REST API
-                                            ┌──────────────────▼──────────────────────┐
-                                            │         FastAPI Backend                 │
-                                            │  ┌────────────────────────────────────┐ │
-                                            │  │   Orchestrator Agent (Manager)     │ │
-                                            │  │   Routes queries to specialists    │ │
-                                            │  └───┬────────────────────────────┬───┘ │
-                                            │      │                            │     │
-                                            │  ┌───▼───────┐  ┌────────┐  ┌─────▼────┐│
-                                            │  │Descriptive│  │Diagnos-│  │Predictive││
-                                            │  │  Agent    │  │tic     │  │  Agent   ││
-                                            │  └───────────┘  │Agent   │  └──────────┘│
-                                            │                 └────────┘              │
-                                            │  ┌────────────────────────────────────┐ │
-                                            │  │    Prescriptive Agent              │ │
-                                            │  └────────────────────────────────────┘ │
-                                            └──────────────────┬──────────────────────┘
-                                                               │
-                                                ┌──────────────┼──────────────┐
-                                                │              │              │
-                                            ┌───▼────┐  ┌──────▼─────┐  ┌─────▼────┐
-                                            │ 15+    │  │ Analytics  │  │  Data    │
-                                            │ Tools  │  │ Modules    │  │  Layer   │
-                                            └────────┘  └────────────┘  └──────────┘
+                                        ┌─────────────────────────────────────────┐
+                                        │         User Interface (Web)            │
+                                        │    HTML5 + CSS3 + Vanilla JS + Plotly   │
+                                        └──────────────────┬──────────────────────┘
+                                                           │ REST API
+                                        ┌──────────────────▼──────────────────────┐
+                                        │         FastAPI Backend                 │
+                                        │  ┌────────────────────────────────────┐ │
+                                        │  │   Orchestrator Agent (Manager)     │ │
+                                        │  │   Routes queries to specialists    │ │
+                                        │  └───┬────────────────────────────┬───┘ │
+                                        │      │                            │     │
+                                        │  ┌───▼───────┐  ┌────────┐  ┌─────▼────┐│
+                                        │  │Descriptive│  │Diagnos-│  │Predictive││
+                                        │  │  Agent    │  │tic     │  │  Agent   ││
+                                        │  └───────────┘  │Agent   │  └──────────┘│
+                                        │                 └────────┘              │
+                                        │  ┌────────────────────────────────────┐ │
+                                        │  │    Prescriptive Agent              │ │
+                                        │  └────────────────────────────────────┘ │
+                                        └──────────────────┬──────────────────────┘
+                                                           │
+                                            ┌──────────────┼──────────────┐
+                                            │              │              │
+                                        ┌───▼────┐  ┌──────▼─────┐  ┌─────▼────┐
+                                        │ 15+    │  │ Analytics  │  │  Data    │
+                                        │ Tools  │  │ Modules    │  │  Layer   │
+                                        └────────┘  └────────────┘  └──────────┘
 ```
 
 ### Agent Hierarchy
