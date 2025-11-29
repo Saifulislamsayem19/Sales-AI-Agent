@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Analytics AI Agent</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>📊 Sales Analytics AI</h1>
+                <p>Powered by Advanced AI Agents</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="chat">
+                    <span>💬</span> AI Assistant
+                </button>
+                <button class="nav-item" data-view="dashboard">
+                    <span>📈</span> Dashboard
+                </button>
+                <button class="nav-item" data-view="descriptive">
+                    <span>📊</span> Descriptive
+                </button>
+                <button class="nav-item" data-view="diagnostic">
+                    <span>🔍</span> Diagnostic
+                </button>
+                <button class="nav-item" data-view="predictive">
+                    <span>🔮</span> Predictive
+                </button>
+                <button class="nav-item" data-view="prescriptive">
+                    <span>💡</span> Prescriptive
+                </button>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">System Active</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h2 id="page-title">AI Assistant</h2>
+                    <p id="page-subtitle">Ask anything about your sales data</p>
+                </div>
+                <div class="header-right">
+                    <div class="quick-stats" id="quick-stats">
+                        <div class="stat-card">
+                            <span class="stat-label">Total Sales</span>
+                            <span class="stat-value" id="stat-sales">Loading...</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Total Orders</span>
+                            <span class="stat-value" id="stat-orders">Loading...</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Profit Margin</span>
+                            <span class="stat-value" id="stat-margin">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat View -->
+            <div class="view-container" id="chat-view">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="welcome-message">
+                            <h3>👋 Welcome to Sales Analytics AI</h3>
+                            <p>I'm your intelligent sales analytics assistant. I can help you with:</p>
+                            <ul>
+                                <li>📊 Analyzing sales trends and patterns</li>
+                                <li>🔍 Investigating performance issues</li>
+                                <li>🔮 Forecasting future sales</li>
+                                <li>💡 Recommending strategic actions</li>
+                            </ul>
+                            <p><strong>Try asking:</strong></p>
+                            <div class="example-queries">
+                                <button class="example-query">"What are my top performing categories?"</button>
+                                <button class="example-query">"Show me sales trends for the past year"</button>
+                                <button class="example-query">"Which customers are at risk of churning?"</button>
+                                <button class="example-query">"What actions should I take to improve profit?"</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="chat-input" 
+                                placeholder="Ask me anything about your sales data..."
+                                autocomplete="off"
+                            >
+                            <button id="send-button" class="send-button">
+                                <span>Send</span>
+                            </button>
+                        </div>
+                        <div class="input-footer">
+                            <span class="powered-by">Powered by GPT-4 & LangChain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard View -->
+            <div class="view-container hidden" id="dashboard-view">
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>Sales Overview</h3>
+                        <div id="sales-overview-chart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Category Performance</h3>
+                        <div id="category-chart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Regional Analysis</h3>
+                        <div id="regional-chart"></div>
+                    </div>
+                    <div class="card">
+                        <h3>Time Series Trend</h3>
+                        <div id="timeseries-chart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Descriptive View -->
+            <div class="view-container hidden" id="descriptive-view">
+                <div class="analytics-content" id="descriptive-content">
+                    <div class="loading-spinner">Loading descriptive analytics...</div>
+                </div>
+            </div>
+
+            <!-- Diagnostic View -->
+            <div class="view-container hidden" id="diagnostic-view">
+                <div class="analytics-content" id="diagnostic-content">
+                    <div class="loading-spinner">Loading diagnostic analytics...</div>
+                </div>
+            </div>
+
+            <!-- Predictive View -->
+            <div class="view-container hidden" id="predictive-view">
+                <div class="analytics-content" id="predictive-content">
+                    <div class="loading-spinner">Loading predictive analytics...</div>
+                </div>
+            </div>
+
+            <!-- Prescriptive View -->
+            <div class="view-container hidden" id="prescriptive-view">
+                <div class="analytics-content" id="prescriptive-content">
+                    <div class="loading-spinner">Loading prescriptive analytics...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
