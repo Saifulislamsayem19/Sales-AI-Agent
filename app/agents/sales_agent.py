@@ -115,7 +115,7 @@ class SalesAnalyticsAgent:
                 'insights': insights,
                 'recommendations': recommendations,
                 'execution_time': round(execution_time, 2),
-                'confidence': 0.85  # Placeholder confidence score
+                'confidence': 0.85  
             }
             
             logger.info(f"Query processed successfully in {execution_time:.2f}s")
