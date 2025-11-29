@@ -59,7 +59,7 @@ AI-driven sales analytics platform built with a multi-agent architecture. It off
 
 ## 🏗️ Architecture
 
-The system implements a hierarchical multi-agent architecture using LangChain and OpenAI GPT-4. For detailed technical design, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).
+The system implements a hierarchical multi-agent architecture using LangChain and OpenAI GPT-4. For detailed technical design, see [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ```
                                     ┌─────────────────────────────────────────┐
